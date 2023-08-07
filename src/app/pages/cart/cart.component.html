@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Xác nhận đơn hàng</h1>
+  <div class="shopping-cart">
+    <div class="column-labels">
+      <label class="product-image">Hình ảnh</label>
+      <label class="product-details">Sản phẩm</label>
+      <label class="product-price">Giá</label>
+      <label class="product-quantity">Số lượng</label>
+      <label class="product-removal">Xóa</label>
+      <label class="product-line-price">Tổng tiền</label>
+    </div>
+
+    <div class="product"  *ngFor="let item of itemList$ | async">
+      <div class="product-image">
+        <img src="{{ item.image }}" />
+      </div>
+      <div class="product-details">
+        <div class="product-title">{{ item.name }}</div>
+        <p class="product-description">
+          {{ item.description }}
+        </p>
+      </div>
+      <div class="product-price">{{ item.price }}</div>
+      <div class="product-quantity">
+        <div>{{item.stock}}</div>
+      </div>
+      <div class="product-removal">
+        <button (click)="removeItemFromStock(item)" class="remove-product">Xóa</button>
+        <button (click)="addItemToStock(item)" class="remove-product">Thêm</button>
+      </div>
+      <div class="product-line-price">{{total$ | async}}</div>
+    </div>
+
+    <div class="totals">
+      <div class="totals-item">
+        <label>Thành tiền</label>
+        <div class="totals-value" id="cart-subtotal">{{total$ | async}}</div>
+      </div>
+    </div>
+
+
+    <button (click)="clearAllCart()" class="checkout">Xóa tất cả</button>
+    <!-- <button (click)="clearAllCart()" class="checkout">Xóa tất cả</button>
+    <button (click)="clearAllCart()" class="checkout">Xóa tất cả</button> -->
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="parent" >
+      <div class="card" *ngFor="let item of itemList$ | async ">
+              <img src="{{item.image}}" alt="">
+              <div class="info">
+                  <div class="name">{{item.name}}</div>
+                  <div class="btnGroup">
+                      <div class="price">{{item.price}}.000đ</div>
+                      <div class="price">{{item.stock}}</div>
+                      <img (click)="clearAllCart()" class="addCart" src="https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790881-6add_84227.png" alt="">
+                  </div>
+              </div>
+      </div>
+  </div>
+</div> -->

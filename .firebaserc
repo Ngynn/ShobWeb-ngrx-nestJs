@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shopweb-3c448": {
+      "hosting": {
+        "ShopWeb": [
+          "shopweb-3c448"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopweb-3c448"
+  }
+}
